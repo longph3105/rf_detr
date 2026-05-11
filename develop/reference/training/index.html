@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SOTA Real-Time Object Detection Model">
+        <meta name="description" content="RF-DETR Lightning training API reference for RFDETRModelModule, RFDETRDataModule, build_trainer, callbacks, and training primitives.">
       
       
         <meta name="author" content="Roboflow">
@@ -18,20 +18,24 @@
         <link rel="prev" href="../segmentation_train_config/">
       
       
-        <link rel="next" href="../../tutorials/">
+        <link rel="next" href="../../cookbooks/">
       
       
         
       
       
       <link rel="icon" href="../../assets/roboflow-logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
+    
+  
     
       
         <title>Training Primitives - RF-DETR</title>
       
     
+  
+
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
@@ -62,6 +66,87 @@
 
     
     
+  
+  <link rel="preconnect" href="https://storage.googleapis.com">
+
+  
+  
+  
+  <meta property="og:title" content="Training Primitives - RF-DETR">
+  <meta property="og:description" content="RF-DETR Lightning training API reference for RFDETRModelModule, RFDETRDataModule, build_trainer, callbacks, and training primitives.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rfdetr.roboflow.com/develop/reference/training/">
+  <meta property="og:image" content="https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png">
+  <meta property="og:image:width" content="840">
+  <meta property="og:image:height" content="630">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@roboflow">
+  <meta name="twitter:title" content="Training Primitives - RF-DETR">
+  <meta name="twitter:description" content="RF-DETR Lightning training API reference for RFDETRModelModule, RFDETRDataModule, build_trainer, callbacks, and training primitives.">
+  <meta name="twitter:image" content="https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png">
+
+  
+  
+  
+  <meta property="article:modified_time" content="<spanTclass="git-revision-date-localized-pluginTgit-revision-date-localized-plugin-iso_datetime"Ttitle="AprilT23,T2026T15:22:59TUTC">2026-04-23T15:22:59</span>+00:00">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Training Primitives",
+    "description": "RF-DETR Lightning training API reference for RFDETRModelModule, RFDETRDataModule, build_trainer, callbacks, and training primitives.",
+    "url": "https://rfdetr.roboflow.com/develop/reference/training/",
+    "isPartOf": {"@id": "https://rfdetr.roboflow.com/develop#website"},
+    "about": {"@id": "https://rfdetr.roboflow.com/develop#software"},
+    "proficiencyLevel": "Beginner to advanced",
+    "inLanguage": "en",
+    "keywords": "RF-DETR, rfdetr, object detection, instance segmentation, computer vision, Roboflow",
+    "datePublished": "2025-03-01",
+    "dateModified": "\u003cspanTclass=\"git-revision-date-localized-pluginTgit-revision-date-localized-plugin-iso_datetime\"Ttitle=\"AprilT23,T2026T15:22:59TUTC\"\u003e2026-04-23T15:22:59\u003c/span\u003e+00:00",
+    "image": "https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png",
+    "author": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
+    "publisher": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://rfdetr.roboflow.com/develop/reference/training/"},
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".md-content h1", ".md-typeset > p:first-child"]
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "RF-DETR",
+        "item": "https://rfdetr.roboflow.com/develop"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Lightning Training",
+        "item": "https://rfdetr.roboflow.com/develop/reference/training/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Training Primitives",
+        "item": "https://rfdetr.roboflow.com/develop/reference/training/"
+      }
+      
+    ]
+  }
+  </script>
+  
+  
+
   </head>
   
   
@@ -214,7 +299,7 @@
                 <li><a href="https://inference.roboflow.com">Inference</a></li>
                 <li><a href="https://supervision.roboflow.com">Supervision</a></li>
                 <li><a href="https://trackers.roboflow.com">Trackers</a></li>
-                <li><a href="https://rf-detr.roboflow.com">RF-DETR</a></li>
+                <li><a href="https://rfdetr.roboflow.com">RF-DETR</a></li>
                 <li><a href="https://maestro.roboflow.com">Maestro</a></li>
                 <li><a href="https://docs.roboflow.com">Roboflow</a></li>
             </ul>
@@ -369,13 +454,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tutorials/" class="md-tabs__link">
+      <a href="../../cookbooks/" class="md-tabs__link">
         
   
   
     
   
-  Tutorials
+  Cookbooks
 
       </a>
     </li>
@@ -388,7 +473,26 @@
   
   
     <li class="md-tabs__item">
-      <a href="https://github.com/roboflow/rf-detr/releases" class="md-tabs__link">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
         
   
   
@@ -1275,34 +1379,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../base/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RF-DETR Base (Deprecated)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../medium/" class="md-nav__link">
         
   
@@ -1395,34 +1471,6 @@
     
   
     RF-DETR 2XLarge
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../large_deprecated/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RF-DETR Large (Deprecated)
   
 
     
@@ -1651,34 +1699,6 @@
     
   
     RF-DETR Seg 2XLarge
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../seg_preview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RF-DETR Seg Preview (Deprecated)
   
 
     
@@ -1935,10 +1955,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rfdetrmodule" class="md-nav__link">
+  <a href="#rfdetrmodelmodule" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RFDETRModule
+        RFDETRModelModule
       
     </span>
   </a>
@@ -1946,10 +1966,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule" class="md-nav__link">
     <span class="md-ellipsis">
       
-        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;RFDETRModule
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;RFDETRModelModule
       
     </span>
   </a>
@@ -1957,7 +1977,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule(model_config)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule(model_config)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;model_config
@@ -1968,7 +1988,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule(train_config)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule(train_config)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;train_config
@@ -1979,7 +1999,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule-functions" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
         Functions
@@ -1991,7 +2011,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.__init__" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
@@ -2002,7 +2022,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_fit_start" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_fit_start" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;on_fit_start
@@ -2013,7 +2033,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;on_train_batch_start
@@ -2025,7 +2045,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -2036,7 +2056,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -2052,57 +2072,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;transfer_batch_to_device
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label=" transfer_batch_to_device">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(batch)" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(device)" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;device
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(dataloader_idx)" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;dataloader_idx
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.training_step" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.training_step" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;training_step
@@ -2114,7 +2084,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.training_step(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.training_step(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -2125,7 +2095,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.training_step(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.training_step(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -2141,7 +2111,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.validation_step" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;validation_step
@@ -2153,7 +2123,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.validation_step(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -2164,7 +2134,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.validation_step(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -2180,7 +2150,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.test_step" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.test_step" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;test_step
@@ -2192,7 +2162,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.test_step(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.test_step(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -2203,7 +2173,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.test_step(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.test_step(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -2219,7 +2189,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.predict_step" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;predict_step
@@ -2231,7 +2201,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.predict_step(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -2242,7 +2212,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.predict_step(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -2253,7 +2223,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.predict_step(dataloader_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(dataloader_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;dataloader_idx
@@ -2269,7 +2239,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.configure_optimizers" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.configure_optimizers" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;configure_optimizers
@@ -2280,7 +2250,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.clip_gradients" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;clip_gradients
@@ -2292,7 +2262,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.clip_gradients(optimizer)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(optimizer)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;optimizer
@@ -2303,7 +2273,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.clip_gradients(gradient_clip_val)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(gradient_clip_val)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;gradient_clip_val
@@ -2314,7 +2284,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.clip_gradients(gradient_clip_algorithm)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(gradient_clip_algorithm)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;gradient_clip_algorithm
@@ -2330,7 +2300,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_load_checkpoint" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_load_checkpoint" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;on_load_checkpoint
@@ -2342,7 +2312,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_load_checkpoint(checkpoint)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_load_checkpoint(checkpoint)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;checkpoint
@@ -2358,7 +2328,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.reinitialize_detection_head" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.reinitialize_detection_head" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;reinitialize_detection_head
@@ -2370,7 +2340,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.reinitialize_detection_head(num_classes)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.reinitialize_detection_head(num_classes)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;num_classes
@@ -2402,7 +2372,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;RFDETRDataModule
@@ -2413,7 +2383,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule(model_config)" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule(model_config)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;model_config
@@ -2424,7 +2394,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule(train_config)" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule(train_config)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;train_config
@@ -2435,7 +2405,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule-attributes" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
         Attributes
@@ -2447,7 +2417,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.class_names" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.class_names" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;class_names
@@ -2463,7 +2433,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule-functions" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
         Functions
@@ -2475,7 +2445,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.__init__" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
@@ -2486,7 +2456,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.setup" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.setup" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;setup
@@ -2498,7 +2468,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.setup(stage)" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.setup(stage)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;stage
@@ -2514,7 +2484,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.train_dataloader" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.train_dataloader" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;train_dataloader
@@ -2525,7 +2495,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.val_dataloader" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.val_dataloader" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;val_dataloader
@@ -2536,7 +2506,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.test_dataloader" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.test_dataloader" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;test_dataloader
@@ -2795,6 +2765,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rfdetr.training.callbacks.best_model.BestModelCallback(skip_best_epochs)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;skip_best_epochs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rfdetr.training.callbacks.best_model.BestModelCallback-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2904,6 +2885,17 @@
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;verbose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rfdetr.training.callbacks.best_model.RFDETREarlyStopping(skip_best_epochs)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;skip_best_epochs
       
     </span>
   </a>
@@ -3201,14 +3193,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/" class="md-nav__link">
+      <a href="../../cookbooks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Tutorials
+    Cookbooks
   
 
     
@@ -3228,7 +3220,34 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/roboflow/rf-detr/releases" class="md-nav__link">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
         
   
   
@@ -3275,10 +3294,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rfdetrmodule" class="md-nav__link">
+  <a href="#rfdetrmodelmodule" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RFDETRModule
+        RFDETRModelModule
       
     </span>
   </a>
@@ -3286,10 +3305,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule" class="md-nav__link">
     <span class="md-ellipsis">
       
-        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;RFDETRModule
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;RFDETRModelModule
       
     </span>
   </a>
@@ -3297,7 +3316,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule(model_config)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule(model_config)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;model_config
@@ -3308,7 +3327,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule(train_config)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule(train_config)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;train_config
@@ -3319,7 +3338,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule-functions" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
         Functions
@@ -3331,7 +3350,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.__init__" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
@@ -3342,7 +3361,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_fit_start" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_fit_start" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;on_fit_start
@@ -3353,7 +3372,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;on_train_batch_start
@@ -3365,7 +3384,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -3376,7 +3395,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -3392,57 +3411,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;transfer_batch_to_device
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label=" transfer_batch_to_device">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(batch)" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(device)" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;device
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(dataloader_idx)" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;dataloader_idx
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.training_step" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.training_step" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;training_step
@@ -3454,7 +3423,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.training_step(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.training_step(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -3465,7 +3434,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.training_step(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.training_step(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -3481,7 +3450,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.validation_step" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;validation_step
@@ -3493,7 +3462,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.validation_step(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -3504,7 +3473,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.validation_step(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -3520,7 +3489,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.test_step" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.test_step" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;test_step
@@ -3532,7 +3501,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.test_step(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.test_step(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -3543,7 +3512,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.test_step(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.test_step(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -3559,7 +3528,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.predict_step" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;predict_step
@@ -3571,7 +3540,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.predict_step(batch)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(batch)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch
@@ -3582,7 +3551,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.predict_step(batch_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(batch_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;batch_idx
@@ -3593,7 +3562,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.predict_step(dataloader_idx)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(dataloader_idx)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;dataloader_idx
@@ -3609,7 +3578,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.configure_optimizers" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.configure_optimizers" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;configure_optimizers
@@ -3620,7 +3589,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.clip_gradients" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;clip_gradients
@@ -3632,7 +3601,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.clip_gradients(optimizer)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(optimizer)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;optimizer
@@ -3643,7 +3612,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.clip_gradients(gradient_clip_val)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(gradient_clip_val)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;gradient_clip_val
@@ -3654,7 +3623,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.clip_gradients(gradient_clip_algorithm)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(gradient_clip_algorithm)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;gradient_clip_algorithm
@@ -3670,7 +3639,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_load_checkpoint" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_load_checkpoint" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;on_load_checkpoint
@@ -3682,7 +3651,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.on_load_checkpoint(checkpoint)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.on_load_checkpoint(checkpoint)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;checkpoint
@@ -3698,7 +3667,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.reinitialize_detection_head" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.reinitialize_detection_head" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;reinitialize_detection_head
@@ -3710,7 +3679,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.module.RFDETRModule.reinitialize_detection_head(num_classes)" class="md-nav__link">
+  <a href="#rfdetr.training.module_model.RFDETRModelModule.reinitialize_detection_head(num_classes)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;num_classes
@@ -3742,7 +3711,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;RFDETRDataModule
@@ -3753,7 +3722,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule(model_config)" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule(model_config)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;model_config
@@ -3764,7 +3733,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule(train_config)" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule(train_config)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;train_config
@@ -3775,7 +3744,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule-attributes" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule-attributes" class="md-nav__link">
     <span class="md-ellipsis">
       
         Attributes
@@ -3787,7 +3756,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.class_names" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.class_names" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;class_names
@@ -3803,7 +3772,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule-functions" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
         Functions
@@ -3815,7 +3784,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.__init__" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
@@ -3826,7 +3795,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.setup" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.setup" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;setup
@@ -3838,7 +3807,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.setup(stage)" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.setup(stage)" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;stage
@@ -3854,7 +3823,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.train_dataloader" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.train_dataloader" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;train_dataloader
@@ -3865,7 +3834,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.val_dataloader" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.val_dataloader" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;val_dataloader
@@ -3876,7 +3845,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rfdetr.training.datamodule.RFDETRDataModule.test_dataloader" class="md-nav__link">
+  <a href="#rfdetr.training.module_data.RFDETRDataModule.test_dataloader" class="md-nav__link">
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;test_dataloader
@@ -4135,6 +4104,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rfdetr.training.callbacks.best_model.BestModelCallback(skip_best_epochs)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;skip_best_epochs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rfdetr.training.callbacks.best_model.BestModelCallback-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4244,6 +4224,17 @@
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;verbose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rfdetr.training.callbacks.best_model.RFDETREarlyStopping(skip_best_epochs)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;skip_best_epochs
       
     </span>
   </a>
@@ -4532,23 +4523,20 @@
 
 <h1 id="training-api-reference">Training API Reference<a class="headerlink" href="#training-api-reference" title="Permanent link">&para;</a></h1>
 <p>This page documents the training primitives that power RF-DETR. For a narrative guide with runnable examples, see <a href="../../learn/train/customization/">Custom Training API</a>.</p>
-<h2 id="rfdetrmodule">RFDETRModule<a class="headerlink" href="#rfdetrmodule" title="Permanent link">&para;</a></h2>
+<h2 id="rfdetrmodelmodule">RFDETRModelModule<a class="headerlink" href="#rfdetrmodelmodule" title="Permanent link">&para;</a></h2>
 
 
 <div class="doc doc-object doc-class">
 
 
 
-<a id="rfdetr.training.module.RFDETRModule"></a>
+<a id="rfdetr.training.module_model.RFDETRModelModule"></a>
     <div class="doc doc-contents first">
             <p class="doc doc-class-bases">
               Bases: <code><span title="pytorch_lightning.LightningModule">LightningModule</span></code></p>
 
 
         <p>LightningModule wrapping the RF-DETR model and training loop.</p>
-<p>Migrates <code>Model.__init__</code>, <code>train_one_epoch</code>, <code>evaluate</code>, and
-optimizer setup from <code>main.py</code> / <code>engine.py</code> into PTL lifecycle hooks.
-Coexists with the existing code until Chapter 4 removes the legacy path.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -4564,8 +4552,8 @@ Coexists with the existing code until Chapter 4 removes the legacy path.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h2 id="rfdetr.training.module.RFDETRModule(model_config)" class="doc doc-heading doc-heading-parameter">                  <code>model_config</code>
-<a href="#rfdetr.training.module.RFDETRModule(model_config)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
+<h2 id="rfdetr.training.module_model.RFDETRModelModule(model_config)" class="doc doc-heading doc-heading-parameter">                  <code>model_config</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule(model_config)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
             <td>
                   <code><span title="rfdetr.config.ModelConfig">ModelConfig</span></code>
             </td>
@@ -4580,8 +4568,8 @@ Coexists with the existing code until Chapter 4 removes the legacy path.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-<h2 id="rfdetr.training.module.RFDETRModule(train_config)" class="doc doc-heading doc-heading-parameter">                  <code>train_config</code>
-<a href="#rfdetr.training.module.RFDETRModule(train_config)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
+<h2 id="rfdetr.training.module_model.RFDETRModelModule(train_config)" class="doc doc-heading doc-heading-parameter">                  <code>train_config</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule(train_config)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
             <td>
                   <code><a class="autorefs autorefs-internal" title="&lt;code&gt;rfdetr.config.TrainConfig&lt;/code&gt;" href="../train_config/#rfdetr.config.TrainConfig">TrainConfig</a></code>
             </td>
@@ -4614,15 +4602,15 @@ Coexists with the existing code until Chapter 4 removes the legacy path.</p>
 
 
 
-<h2 id="rfdetr.training.module.RFDETRModule-functions">Functions<a href="#rfdetr.training.module.RFDETRModule-functions" class="headerlink" title="Permanent link">&para;</a></h2>
+<h2 id="rfdetr.training.module_model.RFDETRModelModule-functions">Functions<a href="#rfdetr.training.module_model.RFDETRModelModule-functions" class="headerlink" title="Permanent link">&para;</a></h2>
 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.__init__" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.__init__" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">model_config</span><span class="p">,</span> <span class="n">train_config</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -4635,10 +4623,10 @@ Coexists with the existing code until Chapter 4 removes the legacy path.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.on_fit_start" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.on_fit_start" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">on_fit_start</span><span class="p">()</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.on_fit_start" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.on_fit_start" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -4655,10 +4643,10 @@ preserving deterministic training behaviour for actual fit runs.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.on_train_batch_start" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">on_train_batch_start</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -4681,8 +4669,8 @@ in <code>training_step</code> because they share the same object.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.on_train_batch_start(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
-<a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="typing.Tuple">Tuple</span></code>
             </td>
@@ -4697,8 +4685,8 @@ in <code>training_step</code> because they share the same object.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.on_train_batch_start(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
-<a href="#rfdetr.training.module.RFDETRModule.on_train_batch_start(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.on_train_batch_start(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="int">int</span></code>
             </td>
@@ -4722,116 +4710,10 @@ in <code>training_step</code> because they share the same object.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.transfer_batch_to_device" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">transfer_batch_to_device</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="p">)</span></code>
-
-<a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device" class="headerlink" title="Permanent link">&para;</a></h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Override PTL's default to handle <code>NestedTensor</code> device transfer.</p>
-<p>PTL's default iterates tuple elements and calls <code>.to(device)</code>; that
-works for plain tensors but <code>NestedTensor</code> must be moved explicitly.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-<h4 id="rfdetr.training.module.RFDETRModule.transfer_batch_to_device(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
-<a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
-            <td>
-                  <code><span title="typing.Tuple">Tuple</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Tuple of (NestedTensor samples, list of target dicts).</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-<h4 id="rfdetr.training.module.RFDETRModule.transfer_batch_to_device(device)" class="doc doc-heading doc-heading-parameter">                  <code>device</code>
-<a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(device)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
-            <td>
-                  <code><span title="torch.device">device</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Target device.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-<h4 id="rfdetr.training.module.RFDETRModule.transfer_batch_to_device(dataloader_idx)" class="doc doc-heading doc-heading-parameter">                  <code>dataloader_idx</code>
-<a href="#rfdetr.training.module.RFDETRModule.transfer_batch_to_device(dataloader_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
-            <td>
-                  <code><span title="int">int</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Index of the dataloader providing this batch.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                  <code><span title="typing.Tuple">Tuple</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Batch with all tensors on <code>device</code>.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="rfdetr.training.module.RFDETRModule.training_step" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.training_step" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">training_step</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.training_step" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.training_step" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -4858,8 +4740,8 @@ magnitude matches the legacy engine (which scales each sub-batch by
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.training_step(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
-<a href="#rfdetr.training.module.RFDETRModule.training_step(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.training_step(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.training_step(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="typing.Tuple">Tuple</span></code>
             </td>
@@ -4874,8 +4756,8 @@ magnitude matches the legacy engine (which scales each sub-batch by
           </tr>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.training_step(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
-<a href="#rfdetr.training.module.RFDETRModule.training_step(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.training_step(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.training_step(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="int">int</span></code>
             </td>
@@ -4922,10 +4804,10 @@ magnitude matches the legacy engine (which scales each sub-batch by
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.validation_step" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.validation_step" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">validation_step</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.validation_step" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -4948,8 +4830,8 @@ them across the epoch via <code>on_validation_batch_end</code>.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.validation_step(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
-<a href="#rfdetr.training.module.RFDETRModule.validation_step(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.validation_step(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="typing.Tuple">Tuple</span></code>
             </td>
@@ -4964,8 +4846,8 @@ them across the epoch via <code>on_validation_batch_end</code>.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.validation_step(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
-<a href="#rfdetr.training.module.RFDETRModule.validation_step(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.validation_step(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.validation_step(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="int">int</span></code>
             </td>
@@ -5012,10 +4894,10 @@ them across the epoch via <code>on_validation_batch_end</code>.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.test_step" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.test_step" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">test_step</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.test_step" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.test_step" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5039,8 +4921,8 @@ from :class:<code>~rfdetr.training.callbacks.BestModelCallback</code> at end of 
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.test_step(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
-<a href="#rfdetr.training.module.RFDETRModule.test_step(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.test_step(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.test_step(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="typing.Tuple">Tuple</span></code>
             </td>
@@ -5055,8 +4937,8 @@ from :class:<code>~rfdetr.training.callbacks.BestModelCallback</code> at end of 
           </tr>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.test_step(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
-<a href="#rfdetr.training.module.RFDETRModule.test_step(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.test_step(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.test_step(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="int">int</span></code>
             </td>
@@ -5103,10 +4985,10 @@ from :class:<code>~rfdetr.training.callbacks.BestModelCallback</code> at end of 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.predict_step" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.predict_step" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">predict_step</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">dataloader_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.predict_step" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5127,8 +5009,8 @@ from :class:<code>~rfdetr.training.callbacks.BestModelCallback</code> at end of 
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.predict_step(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
-<a href="#rfdetr.training.module.RFDETRModule.predict_step(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.predict_step(batch)" class="doc doc-heading doc-heading-parameter">                  <code>batch</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(batch)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="typing.Tuple">Tuple</span></code>
             </td>
@@ -5143,8 +5025,8 @@ from :class:<code>~rfdetr.training.callbacks.BestModelCallback</code> at end of 
           </tr>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.predict_step(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
-<a href="#rfdetr.training.module.RFDETRModule.predict_step(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.predict_step(batch_idx)" class="doc doc-heading doc-heading-parameter">                  <code>batch_idx</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(batch_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="int">int</span></code>
             </td>
@@ -5159,8 +5041,8 @@ from :class:<code>~rfdetr.training.callbacks.BestModelCallback</code> at end of 
           </tr>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.predict_step(dataloader_idx)" class="doc doc-heading doc-heading-parameter">                  <code>dataloader_idx</code>
-<a href="#rfdetr.training.module.RFDETRModule.predict_step(dataloader_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.predict_step(dataloader_idx)" class="doc doc-heading doc-heading-parameter">                  <code>dataloader_idx</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.predict_step(dataloader_idx)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="int">int</span></code>
             </td>
@@ -5207,10 +5089,10 @@ from :class:<code>~rfdetr.training.callbacks.BestModelCallback</code> at end of 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.configure_optimizers" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.configure_optimizers" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">configure_optimizers</span><span class="p">()</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.configure_optimizers" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.configure_optimizers" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5251,10 +5133,10 @@ size or accumulation settings.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.clip_gradients" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.clip_gradients" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">clip_gradients</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">gradient_clip_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gradient_clip_algorithm</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.clip_gradients" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5280,8 +5162,8 @@ delegate to <code>super()</code> to preserve scaler-aware unscaling.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.clip_gradients(optimizer)" class="doc doc-heading doc-heading-parameter">                  <code>optimizer</code>
-<a href="#rfdetr.training.module.RFDETRModule.clip_gradients(optimizer)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.clip_gradients(optimizer)" class="doc doc-heading doc-heading-parameter">                  <code>optimizer</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(optimizer)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="torch.optim.Optimizer">Optimizer</span></code>
             </td>
@@ -5296,8 +5178,8 @@ delegate to <code>super()</code> to preserve scaler-aware unscaling.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.clip_gradients(gradient_clip_val)" class="doc doc-heading doc-heading-parameter">                  <code>gradient_clip_val</code>
-<a href="#rfdetr.training.module.RFDETRModule.clip_gradients(gradient_clip_val)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.clip_gradients(gradient_clip_val)" class="doc doc-heading doc-heading-parameter">                  <code>gradient_clip_val</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(gradient_clip_val)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="typing.Optional">Optional</span>[<span title="float">float</span>]</code>
             </td>
@@ -5312,8 +5194,8 @@ delegate to <code>super()</code> to preserve scaler-aware unscaling.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.clip_gradients(gradient_clip_algorithm)" class="doc doc-heading doc-heading-parameter">                  <code>gradient_clip_algorithm</code>
-<a href="#rfdetr.training.module.RFDETRModule.clip_gradients(gradient_clip_algorithm)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.clip_gradients(gradient_clip_algorithm)" class="doc doc-heading doc-heading-parameter">                  <code>gradient_clip_algorithm</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.clip_gradients(gradient_clip_algorithm)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
             </td>
@@ -5338,17 +5220,17 @@ for the non-fused path.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.on_load_checkpoint" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.on_load_checkpoint" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">on_load_checkpoint</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.on_load_checkpoint" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.on_load_checkpoint" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
 
-        <p>Auto-detect and normalise legacy <code>.pth</code> checkpoints at load time.</p>
+        <p>Auto-detect legacy formats and reconcile PE shapes at checkpoint load time.</p>
 <p>PTL calls this hook before applying <code>checkpoint["state_dict"]</code> to
-the module.  Two legacy formats are handled:</p>
+the module.  Three normalisation steps are applied in order:</p>
 <ol>
 <li>
 <p><strong>Raw legacy format</strong> — a <code>*.pth</code> file loaded directly by
@@ -5356,6 +5238,14 @@ the module.  Two legacy formats are handled:</p>
    of <code>"model"</code> without <code>"state_dict"</code>.  The state dict is
    rewritten in-place with the <code>"model."</code> prefix so PTL can apply it
    normally.</p>
+</li>
+<li>
+<p><strong>Positional-embedding interpolation</strong> — when the checkpoint was
+   saved at a different image resolution than the current model, the
+   DINOv2 <code>position_embeddings</code> tensor shape will mismatch.
+   :func:<code>~rfdetr.models.weights.interpolate_position_embeddings</code> is
+   called to bicubic-resize the PE to <code>model_config.positional_encoding_size</code>
+   before PTL applies the state dict.  Regression fix for :issue:<code>998</code>.</p>
 </li>
 <li>
 <p><strong>Converted format</strong> — a file produced by
@@ -5381,8 +5271,8 @@ the module.  Two legacy formats are handled:</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.on_load_checkpoint(checkpoint)" class="doc doc-heading doc-heading-parameter">                  <code>checkpoint</code>
-<a href="#rfdetr.training.module.RFDETRModule.on_load_checkpoint(checkpoint)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.on_load_checkpoint(checkpoint)" class="doc doc-heading doc-heading-parameter">                  <code>checkpoint</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.on_load_checkpoint(checkpoint)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
             </td>
@@ -5406,10 +5296,10 @@ the module.  Two legacy formats are handled:</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.module.RFDETRModule.reinitialize_detection_head" class="doc doc-heading">
+<h3 id="rfdetr.training.module_model.RFDETRModelModule.reinitialize_detection_head" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">reinitialize_detection_head</span><span class="p">(</span><span class="n">num_classes</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.module.RFDETRModule.reinitialize_detection_head" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.reinitialize_detection_head" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5430,8 +5320,8 @@ the module.  Two legacy formats are handled:</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.module.RFDETRModule.reinitialize_detection_head(num_classes)" class="doc doc-heading doc-heading-parameter">                  <code>num_classes</code>
-<a href="#rfdetr.training.module.RFDETRModule.reinitialize_detection_head(num_classes)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_model.RFDETRModelModule.reinitialize_detection_head(num_classes)" class="doc doc-heading doc-heading-parameter">                  <code>num_classes</code>
+<a href="#rfdetr.training.module_model.RFDETRModelModule.reinitialize_detection_head(num_classes)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="int">int</span></code>
             </td>
@@ -5466,16 +5356,13 @@ the module.  Two legacy formats are handled:</p>
 
 
 
-<a id="rfdetr.training.datamodule.RFDETRDataModule"></a>
+<a id="rfdetr.training.module_data.RFDETRDataModule"></a>
     <div class="doc doc-contents first">
             <p class="doc doc-class-bases">
               Bases: <code><span title="pytorch_lightning.LightningDataModule">LightningDataModule</span></code></p>
 
 
         <p>LightningDataModule wrapping RF-DETR dataset construction and data loading.</p>
-<p>Migrates <code>Model.train()</code> dataset construction and DataLoader setup from
-<code>main.py</code> into PTL lifecycle hooks.  Coexists with the existing code until
-Chapter 4 removes the legacy path.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -5491,8 +5378,8 @@ Chapter 4 removes the legacy path.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h2 id="rfdetr.training.datamodule.RFDETRDataModule(model_config)" class="doc doc-heading doc-heading-parameter">                  <code>model_config</code>
-<a href="#rfdetr.training.datamodule.RFDETRDataModule(model_config)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
+<h2 id="rfdetr.training.module_data.RFDETRDataModule(model_config)" class="doc doc-heading doc-heading-parameter">                  <code>model_config</code>
+<a href="#rfdetr.training.module_data.RFDETRDataModule(model_config)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
             <td>
                   <code><span title="rfdetr.config.ModelConfig">ModelConfig</span></code>
             </td>
@@ -5507,8 +5394,8 @@ Chapter 4 removes the legacy path.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-<h2 id="rfdetr.training.datamodule.RFDETRDataModule(train_config)" class="doc doc-heading doc-heading-parameter">                  <code>train_config</code>
-<a href="#rfdetr.training.datamodule.RFDETRDataModule(train_config)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
+<h2 id="rfdetr.training.module_data.RFDETRDataModule(train_config)" class="doc doc-heading doc-heading-parameter">                  <code>train_config</code>
+<a href="#rfdetr.training.module_data.RFDETRDataModule(train_config)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
             <td>
                   <code><a class="autorefs autorefs-internal" title="&lt;code&gt;rfdetr.config.TrainConfig&lt;/code&gt;" href="../train_config/#rfdetr.config.TrainConfig">TrainConfig</a></code>
             </td>
@@ -5539,20 +5426,20 @@ Chapter 4 removes the legacy path.</p>
 
 
 
-<h2 id="rfdetr.training.datamodule.RFDETRDataModule-attributes">Attributes<a href="#rfdetr.training.datamodule.RFDETRDataModule-attributes" class="headerlink" title="Permanent link">&para;</a></h2>
+<h2 id="rfdetr.training.module_data.RFDETRDataModule-attributes">Attributes<a href="#rfdetr.training.module_data.RFDETRDataModule-attributes" class="headerlink" title="Permanent link">&para;</a></h2>
 
 <div class="doc doc-object doc-attribute">
 
 
 
-<h3 id="rfdetr.training.datamodule.RFDETRDataModule.class_names" class="doc doc-heading">
+<h3 id="rfdetr.training.module_data.RFDETRDataModule.class_names" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <code class="highlight language-python"><span class="n">class_names</span></code>
 
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-<a href="#rfdetr.training.datamodule.RFDETRDataModule.class_names" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_data.RFDETRDataModule.class_names" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5589,15 +5476,15 @@ does not expose COCO-style category information.</p>
 
 </div>
 
-<h2 id="rfdetr.training.datamodule.RFDETRDataModule-functions">Functions<a href="#rfdetr.training.datamodule.RFDETRDataModule-functions" class="headerlink" title="Permanent link">&para;</a></h2>
+<h2 id="rfdetr.training.module_data.RFDETRDataModule-functions">Functions<a href="#rfdetr.training.module_data.RFDETRDataModule-functions" class="headerlink" title="Permanent link">&para;</a></h2>
 
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.datamodule.RFDETRDataModule.__init__" class="doc doc-heading">
+<h3 id="rfdetr.training.module_data.RFDETRDataModule.__init__" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">model_config</span><span class="p">,</span> <span class="n">train_config</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.datamodule.RFDETRDataModule.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_data.RFDETRDataModule.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5610,10 +5497,10 @@ does not expose COCO-style category information.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.datamodule.RFDETRDataModule.setup" class="doc doc-heading">
+<h3 id="rfdetr.training.module_data.RFDETRDataModule.setup" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">setup</span><span class="p">(</span><span class="n">stage</span><span class="p">)</span></code>
 
-<a href="#rfdetr.training.datamodule.RFDETRDataModule.setup" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_data.RFDETRDataModule.setup" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5637,8 +5524,8 @@ only constructed once even if <code>setup</code> is called multiple times.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-<h4 id="rfdetr.training.datamodule.RFDETRDataModule.setup(stage)" class="doc doc-heading doc-heading-parameter">                  <code>stage</code>
-<a href="#rfdetr.training.datamodule.RFDETRDataModule.setup(stage)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
+<h4 id="rfdetr.training.module_data.RFDETRDataModule.setup(stage)" class="doc doc-heading doc-heading-parameter">                  <code>stage</code>
+<a href="#rfdetr.training.module_data.RFDETRDataModule.setup(stage)" class="headerlink" title="Permanent link">&para;</a></h4>            </td>
             <td>
                   <code><span title="str">str</span></code>
             </td>
@@ -5663,10 +5550,10 @@ only constructed once even if <code>setup</code> is called multiple times.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.datamodule.RFDETRDataModule.train_dataloader" class="doc doc-heading">
+<h3 id="rfdetr.training.module_data.RFDETRDataModule.train_dataloader" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">train_dataloader</span><span class="p">()</span></code>
 
-<a href="#rfdetr.training.datamodule.RFDETRDataModule.train_dataloader" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_data.RFDETRDataModule.train_dataloader" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5674,8 +5561,12 @@ only constructed once even if <code>setup</code> is called multiple times.</p>
         <p>Return the training DataLoader.</p>
 <p>Uses a replacement sampler when the dataset is too small to fill
 <code>_MIN_TRAIN_BATCHES</code> effective batches (matching legacy behaviour in
-<code>main.py</code>).  Otherwise uses a <code>BatchSampler</code> with
-<code>drop_last=True</code> to avoid incomplete batches.</p>
+<code>main.py</code>).  Otherwise wraps the dataset with
+:class:<code>GradAccumAlignedDataset</code> to ensure its length is an exact
+multiple of <code>effective_batch_size * world_size</code> (workaround for
+https://github.com/Lightning-AI/pytorch-lightning/issues/19987) and
+then uses <code>shuffle=True, drop_last=True</code> so that PTL can
+auto-inject <code>DistributedSampler</code> in DDP mode.</p>
 
 
     <p><span class="doc-section-title">Returns:</span></p>
@@ -5708,10 +5599,10 @@ only constructed once even if <code>setup</code> is called multiple times.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.datamodule.RFDETRDataModule.val_dataloader" class="doc doc-heading">
+<h3 id="rfdetr.training.module_data.RFDETRDataModule.val_dataloader" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">val_dataloader</span><span class="p">()</span></code>
 
-<a href="#rfdetr.training.datamodule.RFDETRDataModule.val_dataloader" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_data.RFDETRDataModule.val_dataloader" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -5749,10 +5640,10 @@ only constructed once even if <code>setup</code> is called multiple times.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="rfdetr.training.datamodule.RFDETRDataModule.test_dataloader" class="doc doc-heading">
+<h3 id="rfdetr.training.module_data.RFDETRDataModule.test_dataloader" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="n">test_dataloader</span><span class="p">()</span></code>
 
-<a href="#rfdetr.training.datamodule.RFDETRDataModule.test_dataloader" class="headerlink" title="Permanent link">&para;</a></h3>
+<a href="#rfdetr.training.module_data.RFDETRDataModule.test_dataloader" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
     <div class="doc doc-contents ">
@@ -6088,6 +5979,13 @@ files) and to track a separate EMA checkpoint in parallel.</p>
 <p>At the end of training the overall winner (regular vs EMA, strict <code>&gt;</code> for
 EMA) is copied to <code>checkpoint_best_total.pth</code> and optimizer/scheduler
 state is stripped via :func:<code>rfdetr.util.misc.strip_checkpoint</code>.</p>
+<p>Checkpoints are only updated on validation epochs where the monitor metric
+is actually logged.  On non-eval epochs (when <code>eval_interval &gt; 1</code> causes
+COCO evaluation to be skipped) the callback is a no-op.</p>
+<p><code>state_dict()</code> and <code>load_state_dict()</code> are overridden to persist
+<code>_best_ema</code> in the Lightning callback state, ensuring that
+<code>trainer.fit(ckpt_path=...)</code> resumes EMA high-water-mark tracking
+from the correct value.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -6138,7 +6036,7 @@ state is stripped via :func:<code>rfdetr.util.misc.strip_checkpoint</code>.</p>
 <h2 id="rfdetr.training.callbacks.best_model.BestModelCallback(monitor_ema)" class="doc doc-heading doc-heading-parameter">                  <code>monitor_ema</code>
 <a href="#rfdetr.training.callbacks.best_model.BestModelCallback(monitor_ema)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
             <td>
-                  <code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
+                  <code><span title="str">str</span> | None</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -6167,8 +6065,39 @@ the end of training.</p>
                   <code>True</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+<h2 id="rfdetr.training.callbacks.best_model.BestModelCallback(skip_best_epochs)" class="doc doc-heading doc-heading-parameter">                  <code>skip_best_epochs</code>
+<a href="#rfdetr.training.callbacks.best_model.BestModelCallback(skip_best_epochs)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Ignore the first N epochs (0..N-1) when tracking
+best regular and EMA checkpoints.  Useful when fine-tuning from
+<code>pretrain_weights</code>: the pretrained model's epoch-0 mAP can
+artificially dominate best-checkpoint selection before training
+adapts to the new dataset.</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
       </tbody>
     </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Skip the first 3 epochs so pretrained weights do not dominate:</p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr.training.callbacks.best_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">BestModelCallback</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmp</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gp">... </span>    <span class="n">cb</span> <span class="o">=</span> <span class="n">BestModelCallback</span><span class="p">(</span><span class="n">output_dir</span><span class="o">=</span><span class="n">tmp</span><span class="p">,</span> <span class="n">skip_best_epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">... </span>    <span class="n">cb</span><span class="o">.</span><span class="n">_skip_best_epochs</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">3</span>
+</span></code></pre></div>
 
 
 
@@ -6193,7 +6122,7 @@ the end of training.</p>
 
 
 <h3 id="rfdetr.training.callbacks.best_model.BestModelCallback.__init__" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">monitor_regular</span><span class="o">=</span><span class="s1">&#39;val/mAP_50_95&#39;</span><span class="p">,</span> <span class="n">monitor_ema</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">run_test</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">monitor_regular</span><span class="o">=</span><span class="s1">&#39;val/mAP_50_95&#39;</span><span class="p">,</span> <span class="n">monitor_ema</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">run_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">skip_best_epochs</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
 
 <a href="#rfdetr.training.callbacks.best_model.BestModelCallback.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
 
@@ -6233,6 +6162,9 @@ synthetic key before delegating to the parent's stopping logic, so all parent
 features are available for free: <code>state_dict</code>/<code>load_state_dict</code> for
 checkpoint resumption, NaN/inf guard via <code>check_finite</code>, and
 <code>stopping_threshold</code>/<code>divergence_threshold</code>.</p>
+<p>Early stopping evaluates only on validation epochs where the monitored
+metrics are logged; non-eval epochs (<code>eval_interval &gt; 1</code>) are skipped
+automatically.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -6344,8 +6276,36 @@ monitor only the EMA metric.  When <code>False</code>, monitor
                   <code>True</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+<h2 id="rfdetr.training.callbacks.best_model.RFDETREarlyStopping(skip_best_epochs)" class="doc doc-heading doc-heading-parameter">                  <code>skip_best_epochs</code>
+<a href="#rfdetr.training.callbacks.best_model.RFDETREarlyStopping(skip_best_epochs)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Ignore the first N epochs (0..N-1) when evaluating
+patience and best-score baselines.  Set this when fine-tuning from
+<code>pretrain_weights</code> to avoid premature stopping before the model
+adapts to the new dataset.</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
       </tbody>
     </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Fine-tuning from pretrained weights — skip first 3 epochs:</p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr.training.callbacks.best_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">RFDETREarlyStopping</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cb</span> <span class="o">=</span> <span class="n">RFDETREarlyStopping</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">skip_best_epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cb</span><span class="o">.</span><span class="n">_skip_best_epochs</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">3</span>
+</span></code></pre></div>
 
 
 
@@ -6370,7 +6330,7 @@ monitor only the EMA metric.  When <code>False</code>, monitor
 
 
 <h3 id="rfdetr.training.callbacks.best_model.RFDETREarlyStopping.__init__" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_delta</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">use_ema</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monitor_regular</span><span class="o">=</span><span class="s1">&#39;val/mAP_50_95&#39;</span><span class="p">,</span> <span class="n">monitor_ema</span><span class="o">=</span><span class="s1">&#39;val/ema_mAP_50_95&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_delta</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">use_ema</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monitor_regular</span><span class="o">=</span><span class="s1">&#39;val/mAP_50_95&#39;</span><span class="p">,</span> <span class="n">monitor_ema</span><span class="o">=</span><span class="s1">&#39;val/ema_mAP_50_95&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">skip_best_epochs</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
 
 <a href="#rfdetr.training.callbacks.best_model.RFDETREarlyStopping.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
 
@@ -6712,7 +6672,7 @@ always computed when <code>trainer.test()</code> is called.</p>
 </div><hr />
 <h2 id="rfdetrcli">RFDETRCli<a class="headerlink" href="#rfdetrcli" title="Permanent link">&para;</a></h2>
 <p><code>RFDETRCli</code> is the command-line entry point for RF-DETR. It wraps
-<code>RFDETRModule</code> and <code>RFDETRDataModule</code> under a single <code>rfdetr</code> command and
+<code>RFDETRModelModule</code> and <code>RFDETRDataModule</code> under a single <code>rfdetr</code> command and
 auto-generates four subcommands from the PyTorch Lightning CLI machinery:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>rfdetr<span class="w"> </span>fit<span class="w">      </span>--config<span class="w"> </span>configs/rfdetr_base.yaml
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>rfdetr<span class="w"> </span>validate<span class="w"> </span>--ckpt_path<span class="w"> </span>output/best.ckpt
@@ -6735,7 +6695,7 @@ same arguments under <code>--data.*</code>.</p>
 
 
         <p>LightningCLI subclass for RF-DETR training and evaluation.</p>
-<p>Wires <code>RFDETRModule</code> and <code>RFDETRDataModule</code> under a unified CLI,
+<p>Wires <code>RFDETRModelModule</code> and <code>RFDETRDataModule</code> under a unified CLI,
 with argument linking that shares <code>model_config</code> and <code>train_config</code>
 between module and datamodule so the user only specifies them once.</p>
 <p>Auto-generated subcommands: <code>fit</code>, <code>validate</code>, <code>test</code>, <code>predict</code>.</p>
@@ -6773,6 +6733,27 @@ between module and datamodule so the user only specifies them once.</p>
 
 
 
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="April 23, 2026 15:22:59 UTC">2026-04-23 15:22:59</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
 
 
 
@@ -6797,7 +6778,7 @@ between module and datamodule so the user only specifies them once.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Roboflow 2025. All rights reserved.
+      Roboflow 2025–2026. All rights reserved.
     </div>
   
   
