@@ -68,6 +68,10 @@
     
   
   
+  
+  <meta name="robots" content="noindex, follow">
+  
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5M220DKLMB"></script>
   <script>
@@ -101,7 +105,7 @@
   
   
   
-  <meta property="article:modified_time" content="2026-08-24T20:19:12">
+  <meta property="article:modified_time" content="2026-09-10T10:19:36">
   
   <script type="application/ld+json">
   {
@@ -116,7 +120,7 @@
     "inLanguage": "en",
     "keywords": "RF-DETR, rfdetr, object detection, instance segmentation, computer vision, Roboflow",
     "datePublished": "2025-03-01",
-    "dateModified": "2026-08-24T20:19:12",
+    "dateModified": "2026-09-10T10:19:36",
     "image": "https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png",
     "author": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
     "publisher": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
@@ -180,6 +184,14 @@
     </div>
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              You are reading the unreleased development version of the documentation, built from the <code>develop</code> branch.<br>
+APIs described here may change or may never ship in a release, so use the <a href="https://rfdetr.roboflow.com/latest/"><strong>latest stable release</strong></a> instead.
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
         
       </div>
     
@@ -1231,6 +1243,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Hardware Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training precision
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2744,6 +2773,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Hardware Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training precision
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3227,6 +3273,10 @@
 </tr>
 </tbody>
 </table>
+<h3 id="training-precision">Training precision<a class="headerlink" href="#training-precision" title="Permanent link">&para;</a></h3>
+<p><code>amp_dtype</code> accepts <code>"auto"</code>, <code>"bf16"</code>, <code>"fp16"</code>, or <code>"fp8"</code>. FP8 selects Lightning's Transformer Engine precision plugin, which replaces eligible linear and layer-normalization layers while retaining BF16 weights. FP8 requires a Transformer Engine-supported NVIDIA GPU and <code>model_config.amp=True</code>; it is rejected for CPU, MPS, TPU/XLA, FSDP, and DeepSpeed. Use DDP for multi-GPU FP8 training. Hardware support and speedups vary, so benchmark the exact model and GPU before adopting it.</p>
+<p>FP8 requires an explicit integer <code>batch_size</code>. Automatic batch sizing probes an unconverted model and is rejected with <code>amp_dtype="fp8"</code>; BF16/FP16 retain automatic sizing.</p>
+<p>See <a href="../advanced/#fp8-training-on-nvidia-cuda">Advanced Training — FP8 on NVIDIA CUDA</a> for the <code>cuda</code> extra, CUDA-version compatibility, an environment check, and troubleshooting. The extra does not enable FP8 automatically and does not support Apple MPS.</p>
 <h2 id="ema-exponential-moving-average">EMA (Exponential Moving Average)<a class="headerlink" href="#ema-exponential-moving-average" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3248,7 +3298,7 @@
 <td><code>eval_base_model</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Validation-only: also evaluate the base model. Validation forwards through one model by default — the EMA weights when <code>use_ema=True</code> — which halves per-batch validation compute. Set to <code>True</code> to restore the base+EMA comparison. See Evaluation Parameters.</td>
+<td>Validation-only: also evaluate the base model. Validation forwards through one model by default — the EMA weights when <code>use_ema=True</code> — instead of two, removing a full model forward pass from every validation batch. Set to <code>True</code> to restore the base+EMA comparison. See Evaluation Parameters.</td>
 </tr>
 <tr>
 <td><code>eval_ema_only</code></td>
@@ -3471,6 +3521,12 @@
 <td>Log per-class AP metrics to the console and loggers. Enable it to also run the underlying per-class <code>torchmetrics</code> computation. Aggregate mAP/mAR and F1 metrics remain available either way.</td>
 </tr>
 <tr>
+<td><code>eval_backend</code></td>
+<td><code>Literal["hotcoco","faster_coco_eval"]</code></td>
+<td><code>"hotcoco"</code></td>
+<td>COCO evaluation backend for detection and segmentation mAP. Both ship with <code>rfdetr[train]</code> and return identical metrics; <code>"faster_coco_eval"</code> selects the previous, slower evaluator.</td>
+</tr>
+<tr>
 <td><code>eval_base_model</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
@@ -3504,6 +3560,7 @@
 <li><code>eval_base_model=True</code> restores the previous behaviour: the base model is evaluated under <code>val/mAP_*</code>, the EMA model under <code>val/ema_*</code>, and both checkpoint tracks run. It costs one extra forward pass per validation batch.</li>
 <li><code>eval_interval</code> controls validation frequency, not the cost of a validation epoch: non-evaluation epochs skip the complete validation loop, while the final epoch always evaluates.</li>
 <li>Lowering <code>eval_max_dets</code> can reduce detection/segmentation evaluation work, but it also changes AP and AR semantics. Keypoint evaluation keeps COCO <code>maxDets=20</code>.</li>
+<li><code>eval_backend</code> selects the COCO evaluator. The default <code>"hotcoco"</code> (<a href="https://github.com/derekallman/hotcoco">hotcoco</a>) ships with <code>rfdetr[train]</code>; <code>"faster_coco_eval"</code> restores the previous evaluator. Metrics are identical, not merely close: the parity tests compare every aggregate, per-class and class-ID output of both backends for box-only and box-plus-mask evaluation and require exact equality. The knob changes the cost of <code>compute()</code>, not the validation forward pass that usually dominates a validation epoch, so it matters most on large validation sets. On synthetic COCO-val-shaped state (5,000 images, 36.6k ground-truth boxes, 300 detections per image, 80 classes, <code>eval_max_dets=500</code>) one macOS-CPU <code>compute()</code> took 6.2 s on <code>faster_coco_eval</code> against 1.1 s on <code>hotcoco</code>. Keypoint evaluation uses its own OKS path and is unaffected, as is the ONNX/TensorRT benchmark evaluator.</li>
 </ul>
 <h2 id="keypoint-preview-parameters">Keypoint Preview Parameters<a class="headerlink" href="#keypoint-preview-parameters" title="Permanent link">&para;</a></h2>
 <p>These parameters apply when training <code>RFDETRKeypointPreview</code> on COCO keypoint annotations or Ultralytics YOLO pose labels.</p>
@@ -3736,7 +3793,7 @@
 </tr>
 </tbody>
 </table>
-<p>With <code>pack_targets=True</code>, train, validation, test, and predict loaders yield batches whose target element is <code>PackedTargets</code> whenever packing is lossless. The Lightning <code>transfer_batch_to_device</code> hook accepts those batches or an unpacked tuple of target dicts. It moves packed fields to the target device, then materializes them into the same plain per-sample dict list that training, validation, test, and prediction hooks receive on the unpacked path. Batches that cannot be packed losslessly retain their original tuple of dicts.</p>
+<p>With <code>pack_targets=True</code>, train, validation, test, and predict loaders yield batches whose target element is <code>PackedTargets</code> whenever packing is lossless. The Lightning <code>transfer_batch_to_device</code> hook accepts those batches or an unpacked tuple of target dicts. It materializes each packed field directly into its own independently owned per-sample tensor on the target device, producing the same plain per-sample dict list that training, validation, test, and prediction hooks receive on the unpacked path. Batches that cannot be packed losslessly retain their original tuple of dicts.</p>
 <h2 id="complete-parameter-reference">Complete Parameter Reference<a class="headerlink" href="#complete-parameter-reference" title="Permanent link">&para;</a></h2>
 <p>Below is a summary table of all training parameters:</p>
 <table>
@@ -3912,6 +3969,12 @@
 <td>Log per-class AP metrics; enable to run the underlying per-class compute.</td>
 </tr>
 <tr>
+<td><code>eval_backend</code></td>
+<td><code>Literal["hotcoco","faster_coco_eval"]</code></td>
+<td>"hotcoco"</td>
+<td>COCO evaluation backend; <code>"faster_coco_eval"</code> selects the previous, slower evaluator.</td>
+</tr>
+<tr>
 <td><code>eval_base_model</code></td>
 <td>bool</td>
 <td>False</td>
@@ -4065,7 +4128,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="August 24, 2026 20:19:12 UTC">2026-08-24 20:19:12</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="September 10, 2026 10:19:36 UTC">2026-09-10 10:19:36</span>
   </span>
 
     
@@ -4174,6 +4237,8 @@
     
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/version-banner.js"></script>
       
     
   </body>
