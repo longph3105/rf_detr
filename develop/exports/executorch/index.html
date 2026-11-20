@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Export RF-DETR models to ExecuTorch (XNNPACK, CoreML, QNN) for on-device PyTorch inference.">
+        <meta name="description" content="Export RF-DETR models to ExecuTorch (XNNPACK, CoreML, QNN, TensorRT) for on-device PyTorch inference.">
       
       
         <meta name="author" content="Roboflow">
@@ -87,7 +87,7 @@
   
   
   <meta property="og:title" content="ExecuTorch - RF-DETR">
-  <meta property="og:description" content="Export RF-DETR models to ExecuTorch (XNNPACK, CoreML, QNN) for on-device PyTorch inference.">
+  <meta property="og:description" content="Export RF-DETR models to ExecuTorch (XNNPACK, CoreML, QNN, TensorRT) for on-device PyTorch inference.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://rfdetr.roboflow.com/develop/exports/executorch/">
   <meta property="og:image" content="https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png">
@@ -98,21 +98,21 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@roboflow">
   <meta name="twitter:title" content="ExecuTorch - RF-DETR">
-  <meta name="twitter:description" content="Export RF-DETR models to ExecuTorch (XNNPACK, CoreML, QNN) for on-device PyTorch inference.">
+  <meta name="twitter:description" content="Export RF-DETR models to ExecuTorch (XNNPACK, CoreML, QNN, TensorRT) for on-device PyTorch inference.">
   <meta name="twitter:image" content="https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png">
 
   
   
   
   
-  <meta property="article:modified_time" content="2026-10-08T16:29:28">
+  <meta property="article:modified_time" content="2026-11-19T10:24:20">
   
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     "headline": "ExecuTorch",
-    "description": "Export RF-DETR models to ExecuTorch (XNNPACK, CoreML, QNN) for on-device PyTorch inference.",
+    "description": "Export RF-DETR models to ExecuTorch (XNNPACK, CoreML, QNN, TensorRT) for on-device PyTorch inference.",
     "url": "https://rfdetr.roboflow.com/develop/exports/executorch/",
     "isPartOf": {"@id": "https://rfdetr.roboflow.com/develop#website"},
     "about": {"@id": "https://rfdetr.roboflow.com/develop#software"},
@@ -120,7 +120,7 @@
     "inLanguage": "en",
     "keywords": "RF-DETR, rfdetr, object detection, instance segmentation, computer vision, Roboflow",
     "datePublished": "2025-03-01",
-    "dateModified": "2026-10-08T16:29:28",
+    "dateModified": "2026-11-19T10:24:20",
     "image": "https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png",
     "author": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
     "publisher": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
@@ -287,6 +287,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -429,12 +431,42 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
     
     
+      
+  
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
-        <a href="../../learn/how-it-works/" class="md-tabs__link">
+        <a href="../../getting-started/install/" class="md-tabs__link">
           
   
   
   How to
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../learn/train/" class="md-tabs__link">
+          
+  
+  
+  Train
 
         </a>
       </li>
@@ -452,15 +484,34 @@ APIs described here may change or may never ship in a release, so use the <a hre
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../learn/inference/" class="md-tabs__link">
           
   
   
-  Export
+  Inference & Export
 
         </a>
       </li>
     
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cookbooks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Cookbooks
+
+      </a>
+    </li>
   
 
       
@@ -489,74 +540,18 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../faq/" class="md-tabs__link">
-        
-  
-  
     
-  
-  FAQ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../cookbooks/" class="md-tabs__link">
-        
-  
-  
     
+      <li class="md-tabs__item">
+        <a href="../../faq/" class="md-tabs__link">
+          
   
-  Cookbooks
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../resources/" class="md-tabs__link">
-        
-  
-  
-    
   
   Resources
 
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../changelog/" class="md-tabs__link">
-        
-  
-  
+        </a>
+      </li>
     
-  
-  Changelog
-
-      </a>
-    </li>
   
 
       
@@ -695,34 +690,6 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
   
-    <li class="md-nav__item">
-      <a href="../../learn/how-it-works/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    How It Works
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
     
     
     
@@ -737,10 +704,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
             
   
   
@@ -758,8 +725,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -784,6 +751,34 @@ APIs described here may change or may never ship in a release, so use the <a hre
     
   
     Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/pretrained/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pretrained Models
   
 
     
@@ -853,10 +848,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
   
@@ -874,8 +869,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -976,14 +971,70 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
     <li class="md-nav__item">
-      <a href="../../learn/pretrained/" class="md-nav__link">
+      <a href="../../learn/run/latency/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Pretrained Models
+    Measuring Latency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/run/videos-and-streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos and Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/inference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inference
   
 
     
@@ -1011,6 +1062,153 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
   
+    <li class="md-nav__item">
+      <a href="../../learn/train/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Train Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Export Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploy Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/how-it-works/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/benchmarks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -1025,17 +1223,17 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Train Model
+    Train
   
 
     
@@ -1046,12 +1244,12 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Train Model
+    Train
   
 
           </label>
@@ -1071,7 +1269,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
   <span class="md-ellipsis">
     
   
-    Overview
+    Train Model
   
 
     
@@ -1148,62 +1346,6 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
     <li class="md-nav__item">
-      <a href="../../learn/train/advanced/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Training
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../learn/train/customization/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Custom Training API
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../learn/train/augmentations/" class="md-nav__link">
         
   
@@ -1253,14 +1395,6 @@ APIs described here may change or may never ship in a release, so use the <a hre
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
               
                 
   
@@ -1268,14 +1402,14 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../learn/train/advanced/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Export Model
+    Advanced Training
   
 
     
@@ -1296,42 +1430,14 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
     <li class="md-nav__item">
-      <a href="../../learn/deploy/" class="md-nav__link">
+      <a href="../../learn/train/customization/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Deploy Model
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../learn/benchmarks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Benchmarks
+    Custom Training API
   
 
     
@@ -1375,17 +1481,17 @@ APIs described here may change or may never ship in a release, so use the <a hre
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Export
+    Inference & Export
   
 
     
@@ -1396,16 +1502,44 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Export
+    Inference & Export
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/inference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1449,7 +1583,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
   <span class="md-ellipsis">
     
   
-    Basics
+    Export Basics
   
 
     
@@ -1477,7 +1611,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
   <span class="md-ellipsis">
     
   
-    Advanced
+    Advanced Export
   
 
     
@@ -1511,10 +1645,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
             
   
   
@@ -1532,8 +1666,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1794,6 +1928,17 @@ APIs described here may change or may never ship in a release, so use the <a hre
 </li>
       
         <li class="md-nav__item">
+  <a href="#tensorrt-backend-nvidia-gpu-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TensorRT Backend (NVIDIA GPU, fp32)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executorch-limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1805,10 +1950,43 @@ APIs described here may change or may never ship in a release, so use the <a hre
 </li>
       
         <li class="md-nav__item">
-  <a href="#executorch-inference-example" class="md-nav__link">
+  <a href="#measured-latency-on-a-laptop-cpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ExecuTorch Inference Example
+        Measured Latency on a Laptop CPU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measured-latency-on-apple-silicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measured Latency on Apple Silicon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predict-with-rfdetrinference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predict with RFDETRInference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-use-the-executorch-runtime-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Use the ExecuTorch runtime directly
       
     </span>
   </a>
@@ -1908,10 +2086,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
             
   
   
@@ -1929,8 +2107,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1989,6 +2167,33 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
   
+    <li class="md-nav__item">
+      <a href="../../cookbooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -2003,10 +2208,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -2024,8 +2229,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2069,6 +2274,34 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
   
+    <li class="md-nav__item">
+      <a href="../../reference/inference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -2083,10 +2316,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
             
   
   
@@ -2104,8 +2337,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2114,6 +2347,90 @@ APIs described here may change or may never ship in a release, so use the <a hre
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/atto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RF-DETR Atto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/femto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RF-DETR Femto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/pico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RF-DETR Pico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2311,10 +2628,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
             
   
   
@@ -2332,8 +2649,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2539,10 +2856,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
             
   
   
@@ -2560,8 +2877,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2627,10 +2944,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_6" >
         
           
-          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
             
   
   
@@ -2648,8 +2965,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2771,10 +3088,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_7" >
         
           
-          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
             
   
   
@@ -2792,8 +3109,8 @@ APIs described here may change or may never ship in a release, so use the <a hre
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2852,6 +3169,58 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
   
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../faq/" class="md-nav__link">
         
@@ -2872,36 +3241,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cookbooks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cookbooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -2914,7 +3257,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
   <span class="md-ellipsis">
     
   
-    Resources
+    Articles and Videos
   
 
     
@@ -2926,9 +3269,10 @@ APIs described here may change or may never ship in a release, so use the <a hre
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -2950,6 +3294,14 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -3025,6 +3377,17 @@ APIs described here may change or may never ship in a release, so use the <a hre
 </li>
       
         <li class="md-nav__item">
+  <a href="#tensorrt-backend-nvidia-gpu-fp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TensorRT Backend (NVIDIA GPU, fp32)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executorch-limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3036,10 +3399,43 @@ APIs described here may change or may never ship in a release, so use the <a hre
 </li>
       
         <li class="md-nav__item">
-  <a href="#executorch-inference-example" class="md-nav__link">
+  <a href="#measured-latency-on-a-laptop-cpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ExecuTorch Inference Example
+        Measured Latency on a Laptop CPU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measured-latency-on-apple-silicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measured Latency on Apple Silicon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predict-with-rfdetrinference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predict with RFDETRInference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-use-the-executorch-runtime-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Use the ExecuTorch runtime directly
       
     </span>
   </a>
@@ -3074,6 +3470,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
 <ul>
 <li><code>dynamic_batch=True</code> is not supported: the runtime cannot resize RF-DETR's windowed-attention reshapes, so export one <code>.pte</code> per batch size instead.</li>
 <li>The <code>"qnn"</code> backend requires a <strong>source build</strong> of ExecuTorch against the QAIRT SDK and cannot be installed via <code>pip</code>.</li>
+<li>The <code>"tensorrt"</code> backend needs its own extra, <code>rfdetr[executorch-tensorrt]</code>, which cannot share an environment with <code>rfdetr[executorch]</code>.</li>
 <li>CoreML export runs in fp16; confident top-level detections carry over but raw tensor values will differ from the PyTorch fp32 model, both as expected for fp16 computation and through the query-ranking effect described under <a href="../coreml/#neural-engine-compute-units-and-the-fallback-boundary">Native CoreML Export</a>.</li>
 </ul>
 </div>
@@ -3081,6 +3478,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"rfdetr[executorch]"</span>
 </span></code></pre></div>
+<p>For <code>backend="tensorrt"</code>, install <code>rfdetr[executorch-tensorrt]</code> instead; see <a href="#tensorrt-backend-nvidia-gpu-fp32">TensorRT Backend</a>.</p>
 <h2 id="xnnpack-backend-portable-cpu-fp32">XNNPACK Backend (Portable CPU, fp32)<a class="headerlink" href="#xnnpack-backend-portable-cpu-fp32" title="Permanent link">&para;</a></h2>
 <p>The <code>"xnnpack"</code> backend targets any CPU platform and runs in fp32. It is the recommended, portable backend and requires only the standard <code>rfdetr[executorch]</code> wheel. <code>backend</code> has no default — it must always be passed explicitly for <code>format="executorch"</code>.</p>
 <p>On this backend the export rewrites attention without a mask as two batched matrix multiplications and a softmax, and computes the query, key and value slices of the decoder's packed <code>in_proj_weight</code> at export time. XNNPACK then runs the encoder and decoder attention, which <code>F.scaled_dot_product_attention</code> and <code>nn.MultiheadAttention</code> otherwise split into portable kernels between many small XNNPACK partitions. The outputs are the same to float32 rounding, and the median CPU latency is 33–54% lower (1.5–2.2x faster) in the measurements of the changelog entry for this change (ExecuTorch 1.5.1, 16 threads, Xeon and Apple M4 Max).</p>
@@ -3138,12 +3536,73 @@ APIs described here may change or may never ship in a release, so use the <a hre
 <p class="admonition-title">Warning</p>
 <p>QNN export is validated on-device but cannot be tested in CI (requires QAIRT SDK). Validate detections on your target Snapdragon device before deploying to production.</p>
 </div>
+<h2 id="tensorrt-backend-nvidia-gpu-fp32">TensorRT Backend (NVIDIA GPU, fp32)<a class="headerlink" href="#tensorrt-backend-nvidia-gpu-fp32" title="Permanent link">&para;</a></h2>
+<p>The <code>"tensorrt"</code> backend targets NVIDIA GPUs. Torch-TensorRT builds a TensorRT engine from the <code>torch.export</code> graph and stores it in the <code>.pte</code>, so there is no ONNX step. For the models we checked (detection Nano to Large, segmentation Nano and the keypoint preview model), TensorRT converts every operator, so the program runs as one TensorRT engine. It takes and returns CPU tensors, like the other backends.</p>
+<p>It needs its own extra, on Linux with Python 3.11 or newer. It is validated on Linux x86-64; aarch64 is untested. It needs an NVIDIA Ampere or newer GPU (compute capability 8.0 or higher): TensorRT 11.4, which Torch-TensorRT 2.15 installs, builds attention with a layer that older GPUs such as the Tesla T4 reject, so the engine build fails there. The extra installs Torch-TensorRT and the ExecuTorch release it was built with, which is newer than the one <code>rfdetr[executorch]</code> pins, so the two extras cannot share an environment. Use this environment for <code>backend="tensorrt"</code>; the other backends are tested with <code>rfdetr[executorch]</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"rfdetr[executorch-tensorrt]"</span>
+</span></code></pre></div>
+<p>Export on a machine with an NVIDIA GPU:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr</span><span class="w"> </span><span class="kn">import</span> <span class="n">RFDETRSmall</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RFDETRSmall</span><span class="p">()</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"executorch"</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">"tensorrt"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>This produces <code>output/rfdetr-small_tensorrt.pte</code>. <a href="#predict-with-rfdetrinference"><code>RFDETRInference</code></a> loads it on the current CUDA device: pass <code>device="auto"</code> or <code>device="cuda"</code>, or <code>device="cuda:N"</code> only when <code>N</code> is the current CUDA device (any other index is refused, because the delegate takes no device argument). To run on another GPU, restrict the visible GPUs with <code>CUDA_VISIBLE_DEVICES</code> before starting Python. To use the ExecuTorch runtime directly, import the TensorRT delegate first, because it ships outside the <code>executorch</code> wheel:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch_tensorrt_executorch_runtime</span>  <span class="c1"># registers the TensorRT delegate</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">executorch.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">Runtime</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">method</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">load_program</span><span class="p">(</span><span class="s2">"output/rfdetr-small_tensorrt.pte"</span><span class="p">)</span><span class="o">.</span><span class="n">load_method</span><span class="p">(</span><span class="s2">"forward"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The engine inside the <code>.pte</code> is built for the GPU and the TensorRT release used at export. Unlike <code>format="tensorrt"</code>, this backend has no <code>trt_hardware_compatibility</code> or <code>trt_version_compatible</code> option, so export again for a different GPU or TensorRT release. The engine computes in fp32; TensorRT may use TF32 math on Ampere and newer GPUs.</p>
+</div>
 <h2 id="executorch-limitations">ExecuTorch Limitations<a class="headerlink" href="#executorch-limitations" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong><code>dynamic_batch=True</code> is not supported.</strong> The ExecuTorch runtime cannot resize RF-DETR's windowed-attention reshapes for a variable batch size. Export one <code>.pte</code> file per batch size instead (e.g. <code>batch_size=1</code> for single-image inference).</li>
 <li><strong>QNN requires a source build.</strong> The QNN backend is not available via the pip wheel; see the ExecuTorch documentation for source-build instructions against the QAIRT SDK.</li>
+<li><strong>A TensorRT <code>.pte</code> is tied to its GPU.</strong> Its engine runs only on GPUs and TensorRT releases compatible with the ones it was exported on.</li>
 </ul>
-<h2 id="executorch-inference-example">ExecuTorch Inference Example<a class="headerlink" href="#executorch-inference-example" title="Permanent link">&para;</a></h2>
+<h2 id="measured-latency-on-a-laptop-cpu">Measured Latency on a Laptop CPU<a class="headerlink" href="#measured-latency-on-a-laptop-cpu" title="Permanent link">&para;</a></h2>
+<p>No latency table is published for this format yet. The earlier rows were measured before the cookbook pinned one thread count for every runtime, so they were not comparable across runtimes and have been removed pending a rerun of the <a href="../../cookbooks/export-mobile/">mobile cookbook</a>.</p>
+<h2 id="measured-latency-on-apple-silicon">Measured Latency on Apple Silicon<a class="headerlink" href="#measured-latency-on-apple-silicon" title="Permanent link">&para;</a></h2>
+<p>CoreML backend, Apple M4 Max, macOS 26.7.1, <code>RFDETRSmall</code>, 5 warmup + 30 timed runs per row, from the <a href="../../cookbooks/export-apple/">Apple cookbook</a>. Every latency is the end-to-end <code>predict()</code> call through <code>RFDETRInference</code>; <code>FPS</code> is images per second at that batch size. <code>mAP@50:95</code> is a seeded 500-image COCO val2017 subset, scored on the same batch-1 artifact that was timed. The backend exports fp16 only.</p>
+<table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Precision</th>
+<th>b1 latency [ms]</th>
+<th>Size [MB]</th>
+<th>mAP@50:95 [%]</th>
+<th>FPS b1</th>
+<th>FPS b4</th>
+<th>FPS b8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CoreML</td>
+<td>fp16</td>
+<td>24.4</td>
+<td>58.2</td>
+<td>56.5</td>
+<td>41.0</td>
+<td>49.1</td>
+<td>83.0</td>
+</tr>
+</tbody>
+</table>
+<p>It matches <a href="../coreml/#measured-latency-on-apple-silicon">native CoreML fp16</a> at batch 1 (24.4 ms) and is slower than native CoreML fp32 (12.7 ms). Another job ran on the machine during this measurement, so the batch-8 deviation is large (± 16.3 ms).</p>
+<h2 id="predict-with-rfdetrinference">Predict with RFDETRInference<a class="headerlink" href="#predict-with-rfdetrinference" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr</span><span class="w"> </span><span class="kn">import</span> <span class="n">RFDETRInference</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RFDETRInference</span><span class="p">(</span><span class="s2">"output/rfdetr-medium_xnnpack.pte"</span><span class="p">)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">detections</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</span></code></pre></div>
+<p>This loads the <code>.pte</code> with ExecuTorch and returns the shared Supervision result types. See <a href="../basics/#predict-with-rfdetrinference">Predict with RFDETRInference</a> for checkpoint inputs, metadata, and batch behavior.</p>
+<h2 id="advanced-use-the-executorch-runtime-directly">Advanced: Use the ExecuTorch runtime directly<a class="headerlink" href="#advanced-use-the-executorch-runtime-directly" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">torch/executorch ABI compatibility</p>
 <p>Loading a <code>.pte</code> via <code>executorch.runtime</code> (below) requires a <code>torch</code> version whose ABI matches the <code>executorch</code> wheel you installed — <code>.pte</code> <strong>export</strong> itself does not need <code>executorch.runtime</code> and is unaffected. For <code>executorch==1.3.1</code>, pin <code>torch&lt;2.13</code> (<code>pip install "torch&lt;2.13"</code>); a newer <code>torch</code> release can silently break <code>executorch.runtime</code> with an <code>undefined symbol</code> / <code>dlopen</code> error at import time, since ExecuTorch's prebuilt wheels are compiled against whichever <code>torch</code> ABI existed at their release time.</p>
@@ -3152,31 +3611,31 @@ APIs described here may change or may never ship in a release, so use the <a hre
 <p class="admonition-title">The input tensor must be contiguous</p>
 <p>The ExecuTorch runtime reads the input buffer as contiguous NCHW and ignores tensor strides. Preprocessing steps that permute axes — <code>np.transpose</code>, <code>Tensor.permute</code>, torchvision's <code>ToImage</code> — return a strided view rather than a copy, and such a view is misread as a scrambled image. Nothing errors: the model runs without error and returns plausible-shaped output, but every detection's score collapses below threshold. Finish preprocessing with <code>np.ascontiguousarray(...)</code> (or <code>Tensor.contiguous()</code>) before calling <code>execute</code>.</p>
 </div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">executorch.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">Runtime</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torchvision.transforms.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Load the exported .pte program</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">runtime</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">method</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">.</span><span class="n">load_program</span><span class="p">(</span><span class="s2">"output/rfdetr-medium_xnnpack.pte"</span><span class="p">)</span><span class="o">.</span><span class="n">load_method</span><span class="p">(</span><span class="s2">"forward"</span><span class="p">)</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Prepare input — the .pte expects the same NCHW, ImageNet-normalized input as the ONNX export</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">input_height</span><span class="p">,</span> <span class="n">input_width</span> <span class="o">=</span> <span class="mi">576</span><span class="p">,</span> <span class="mi">576</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"RGB"</span><span class="p">)</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">image_tensor</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">to_tensor</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">image_tensor</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">image_tensor</span><span class="p">,</span> <span class="p">[</span><span class="n">input_height</span><span class="p">,</span> <span class="n">input_width</span><span class="p">],</span> <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="n">mean</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">]</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="n">std</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">]</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="n">image_tensor</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">image_tensor</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="n">image_array</span> <span class="o">=</span> <span class="n">image_tensor</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># add batch dimension: (1, 3, H, W)</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="n">input_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">image_array</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="c1"># Run inference</span>
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="n">outputs</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">execute</span><span class="p">([</span><span class="n">input_tensor</span><span class="p">])</span>
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="n">boxes</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">executorch.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">Runtime</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torchvision.transforms.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># Load the exported .pte program</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">runtime</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">method</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">.</span><span class="n">load_program</span><span class="p">(</span><span class="s2">"output/rfdetr-medium_xnnpack.pte"</span><span class="p">)</span><span class="o">.</span><span class="n">load_method</span><span class="p">(</span><span class="s2">"forward"</span><span class="p">)</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># Prepare input — the .pte expects the same NCHW, ImageNet-normalized input as the ONNX export</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">input_height</span><span class="p">,</span> <span class="n">input_width</span> <span class="o">=</span> <span class="mi">576</span><span class="p">,</span> <span class="mi">576</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"RGB"</span><span class="p">)</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">image_tensor</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">to_tensor</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="n">image_tensor</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">image_tensor</span><span class="p">,</span> <span class="p">[</span><span class="n">input_height</span><span class="p">,</span> <span class="n">input_width</span><span class="p">],</span> <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="n">mean</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">]</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="n">std</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">]</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="n">image_tensor</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">image_tensor</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="n">image_array</span> <span class="o">=</span> <span class="n">image_tensor</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># add batch dimension: (1, 3, H, W)</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="n">input_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">image_array</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="c1"># Run inference</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="n">outputs</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">execute</span><span class="p">([</span><span class="n">input_tensor</span><span class="p">])</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="n">boxes</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </span></code></pre></div>
 
 
@@ -3198,7 +3657,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="October 8, 2026 16:29:28 UTC">2026-10-08 16:29:28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="November 19, 2026 10:24:20 UTC">2026-11-19 10:24:20</span>
   </span>
 
     
@@ -3303,7 +3762,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.tabs.link", "content.code.copy", "navigation.expand", "navigation.tabs", "content.code.annotate", "navigation.tracking", "content.tooltips", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.tabs.link", "content.code.copy", "navigation.expand", "navigation.tabs", "content.code.annotate", "navigation.tracking", "content.tooltips", "navigation.tabs.sticky", "search.suggest", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
